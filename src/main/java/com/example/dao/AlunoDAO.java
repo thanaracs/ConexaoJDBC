@@ -1,6 +1,6 @@
-package dao;
+package com.example.dao;
 
-import com.example.conexaojdbc.Aluno;
+import com.example.entity.Aluno;
 import com.example.conexaojdbc.Conexao;
 
 import java.sql.Connection;
@@ -14,12 +14,12 @@ import java.util.logging.Logger;
 
 
 public class AlunoDAO {
-
+/*
     public static void main(String[] args) {
         AlunoDAO dao = new AlunoDAO();
         System.out.println(dao.buscarAlunos().get(0).getNome());
 
-    }
+    }*/
 
     public List<Aluno> buscarAlunos() {
         try {

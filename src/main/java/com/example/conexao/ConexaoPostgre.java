@@ -1,39 +1,40 @@
 package com.example.conexaojdbc;
 
+import com.example.conexaojdbc.ConexaoJDBC;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Conexao {
+public class ConexaoPostgre implements ConexaoJDBC {
 
     public static void main(String[] args) {
 
         //testar conexão
-        System.out.println(Conexao.criarConexao());
+        System.out.println(new ConexaoPostgre().criarConexao());
 
     }
 
     /**
      * método que vai retornar uma conexão
-     * método static: método da classe
-     * método não static: método de objeto
      * @return
      */
-    public static Connection criarConexao(){
+    @Override
+    public Connection criarConexao(){
         try {
             //carregar o driver de conexão
             Class.forName("org.postgresql.Driver");
             //parâmetros
-            String url = "jdbc:postgresql://localhost:5432/PessoaBD";
+            String url = "jdbc:postgresql://localhost:5433/PessoaBD";
             String usuario = "postgres";
             String senha = "admin";
             //retorna a conexão com o banco de dados
             return DriverManager.getConnection(url, usuario, senha);
 
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConexaoPostgre.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
