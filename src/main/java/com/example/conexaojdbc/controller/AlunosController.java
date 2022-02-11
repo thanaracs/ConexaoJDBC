@@ -1,6 +1,6 @@
 package com.example.conexaojdbc.controller;
 
-import com.example.conexaojdbc.conexoes.AlunoDAO;
+import com.example.conexaojdbc.dao.AlunoDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;

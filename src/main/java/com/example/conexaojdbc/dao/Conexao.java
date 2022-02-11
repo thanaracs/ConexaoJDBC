@@ -1,4 +1,4 @@
-package com.example.conexaojdbc.conexoes;
+package com.example.conexaojdbc.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,12 +6,11 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ConexaoPostgre implements ConexaoJDBC{
-    public static void main(String[] args) {
+public class Conexao implements ConexaoJDBC{
 
-        //testar conexão
-        System.out.println(new ConexaoPostgre().criarConexao());
-
+    public static Connection conexao(){
+        ConexaoJDBC conexao = new Conexao();
+        return conexao.criarConexao();
     }
 
     @Override
@@ -25,7 +24,7 @@ public class ConexaoPostgre implements ConexaoJDBC{
             return DriverManager.getConnection(url, usuario, senha);
 
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ConexaoPostgre.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

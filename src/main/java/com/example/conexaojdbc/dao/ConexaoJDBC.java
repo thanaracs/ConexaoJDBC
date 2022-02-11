@@ -1,4 +1,4 @@
-package com.example.conexaojdbc.conexoes;
+package com.example.conexaojdbc.dao;
 
 import java.sql.Connection;
 

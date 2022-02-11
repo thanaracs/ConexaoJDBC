@@ -1,4 +1,4 @@
-package com.example.conexaojdbc.conexoes;
+package com.example.conexaojdbc.dao;
 
 import com.example.conexaojdbc.model.Aluno;
 
@@ -16,7 +16,7 @@ public class AlunoDAO {
 
 
     public AlunoDAO(){
-        con = MinhaConexao.conexao();
+        con = Conexao.conexao();
     }
 
 
