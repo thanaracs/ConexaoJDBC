@@ -7,16 +7,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ConexaoPostgre implements ConexaoJDBC{
+    public static void main(String[] args) {
+
+        //testar conexão
+        System.out.println(new ConexaoPostgre().criarConexao());
+
+    }
+
     @Override
     public Connection criarConexao() {
         try {
-            //carregar o driver de conexão
             Class.forName("org.postgresql.Driver");
-            //parâmetros
-            String url = "jdbc:postgresql://localhost:5432/AlunosBD";
+            String url = "jdbc:postgresql://localhost:5432/alunosBD";
             String usuario = "postgres";
             String senha = "admin";
-            //retorna a conexão com o banco de dados
+
             return DriverManager.getConnection(url, usuario, senha);
 
         } catch (ClassNotFoundException | SQLException ex) {

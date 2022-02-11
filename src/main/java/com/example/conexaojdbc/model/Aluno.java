@@ -1,10 +1,9 @@
-package com.example.conexaojdbc;
+package com.example.conexaojdbc.model;
 
 public class Aluno {
     private int id;
     private String nome;
     private String matricula;
-
 
     public int getId() {
         return id;

@@ -1,6 +1,6 @@
 package com.example.conexaojdbc.controller;
 
-import com.example.conexaojdbc.dao.AlunoDAO;
+import com.example.conexaojdbc.conexoes.AlunoDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +16,8 @@ public class AlunosController {
     }
     @GetMapping("/list")
     public ModelAndView listar(ModelMap model) {
+
         model.addAttribute("alunos", dao.buscarAlunos());
-        return new ModelAndView("/alunos/list", model);
+        return new ModelAndView("alunos/list", model);
     }
 }

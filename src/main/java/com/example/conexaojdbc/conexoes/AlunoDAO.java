@@ -1,6 +1,6 @@
-package com.example.conexaojdbc.dao;
+package com.example.conexaojdbc.conexoes;
 
-import com.example.conexaojdbc.Aluno;
+import com.example.conexaojdbc.model.Aluno;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +13,13 @@ import java.util.logging.Logger;
 
 public class AlunoDAO {
     Connection con;
+
+
+    public AlunoDAO(){
+        con = MinhaConexao.conexao();
+    }
+
+
     public List<Aluno> buscarAlunos() {
         try {
             //comando sql
